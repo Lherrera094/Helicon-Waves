@@ -8,8 +8,12 @@ characteristics functions*/
 #include "constants.h"
 #include <stdio.h>
 
+
 double w_p(double n);
 double k_s(double w);
+double w_c(double B);
+double k_w(double w, double n, double B);
+double delt(double w, double wc, double v);
 
 
 #endif
