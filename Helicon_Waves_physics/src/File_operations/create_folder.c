@@ -13,7 +13,7 @@ necessary for the code are created*/
 //Creates the folder Results, where all outputs from runs are saved.
 void results_folder(void){
     
-    const char* foldername = "Results";  //Folder name
+    const char* foldername = "RESULTS";  //Folder name
     
     //Check if flder already exists
     if( access(foldername, F_OK) == -1 ){
@@ -30,39 +30,58 @@ void results_folder(void){
     }
     else{
         //Folder already exist
-        printf("Folder already exists. \n");
+        printf("Folder Results already exists. \n");
     }
 }
 
 //Creates the folder to saves all the results of a run
-void plasma_files_folder(void){
-    //Foldername
-    char foldername[100];
+char* plasma_files_folder(void){
+    //Folder name
+    char* foldername = NULL;
+    char buffer[200];
     
-    scanf("Results");
+    
+    //Ask user to input folder name
+    printf("Enter folder name: \n");
+    
+    
+    scanf("RESULTS");
     //Checks if the folder Results exists
-    if( access("Results", F_OK) == -1 ){
+    if( access("RESULTS", F_OK) == -1 ){
         printf("Folder does not exist. \n");
     }
     
-    //Ask user to input folder name
-    printf("Enter folder name: ");
-    if( fgets(foldername, sizeof(foldername), stdin) == NULL){
-        printf("Error reading input. \n");
+    
+    //Creates the folder nanme
+    if( fgets(buffer, sizeof(buffer), stdin) ){
+    	
+    	//Allocate the memory for the String
+    	foldername = (char*)malloc( strlen(buffer)+1 );
+        if(foldername != NULL){
+            
+            strcpy(foldername, buffer);
+        }
+        else{
+            printf("Error reading input. \n");
+        }
     }
     
+    
+    //Full folder path
     char subFolderPath[200];
-    sprintf(subFolderPath, "Results/%s", foldername);
+    sprintf(subFolderPath, "RESULTS/%s", foldername);
     
     //Checks if the subfolder exists
     if( access(subFolderPath, F_OK) == -1){
         //If does not exist, it create one
-        int status = mkdir(subFolderPath, 0.777);
+        int status = mkdir(subFolderPath, 0777);
         
         if( status != 0){
             printf("Error creating sub folder. \n");
         }
     }
+    
+    return foldername;
     
 }
 
