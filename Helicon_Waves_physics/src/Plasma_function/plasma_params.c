@@ -53,6 +53,23 @@ double delt(double w, double wc, double v){
 }
 
 
+//K_min
+//Receives: Damping factor(d), Skin number(k)
+double k_min(double d, double k){
+    return 2*d*k;
+}
+
+
+//K_max
+//Receives: Damping factor(d), Skin number(k)
+double k_max(double d, double k){
+    return sqrt(d/(1-d))*k;
+}
+
+
+
+
+
 
 
 
