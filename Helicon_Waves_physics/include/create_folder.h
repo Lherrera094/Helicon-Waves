@@ -8,7 +8,7 @@ necessary for the code are created*/
 
 //Creates the folder Results, where all outputs from runs are saved.
 void results_folder(void);
-void plasma_files_folder(void);
+char* plasma_files_folder(void);
 
 
 #endif
