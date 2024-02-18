@@ -15,16 +15,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "constants.h"
 #include "plasma_params.h"
 #include "create_folder.h"
 #include "write_file.h"
 
  int main(void){
+ 	
+ 	//Running time variables
+ 	clock_t start, end;
+ 	double cpu_time_used;
+ 	
+ 	//Saves the time at which the program started
+ 	start = clock();
  
  	//Input values
  	double n_0 = 2.0e19;		//Plasma density [m^-3]
-        double B_0 = 100e-4;		//External Magnetic Field [T]
+        double B_0 = 0.12;		//External Magnetic Field [T]
  	double w = 27.12e6; 		//Wave frequency [Hz]
  	double v = 0;			//Collision Frequency
  	
@@ -64,8 +72,14 @@
 	printf("k_max = %f m^-1\n", k_max(del,K_s));
 	*/
 	
-	
 	free(foldername); 	
+	
+	//Saves the time at which the process ended
+	end = clock();
+	cpu_time_used = ( (double)(end-start) )/CLOCKS_PER_SEC;
+	printf("Program Running Time = %.2e s.\n", cpu_time_used);
+	//printf("%f \n", double end);
+	
  	return 0;
  
  }
