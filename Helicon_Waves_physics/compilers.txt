@@ -1,0 +1,19 @@
+This is a list of all compilers for the code: 
+
+-File Operations
+Write file:		gcc -c src/File_operations/write_file.c -Iinclude -o write_file.o
+Create folder:		gcc -c src/File_operations/create_folder.c -Iinclude -o create_folder.o
+
+-Plasma Function
+Plasma Parameters:	gcc -c src/Plasma_function/plasma_params.c -Iinclude -o plasma_params.o
+
+-JSON reader
+cJSON: 			gcc -c src/JSON_reader/cJSON.c -Iinclude -o cJSON.o
+
+
+-Main
+main function:		gcc -c src/main.c -Iinclude -o main.o
+
+
+-Linker Line
+			gcc create_folder.o plasma_params.o write_file.o main.o -o execute -lm
