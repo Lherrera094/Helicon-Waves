@@ -5,10 +5,16 @@ necessary for the code are created*/
 
 #define CREATE_FOLDERS_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <string.h>
 
 //Creates the folder Results, where all outputs from runs are saved.
 void results_folder(void);
-char* plasma_files_folder(void);
+void plasma_files_folder(char *foldername);
 
 
 #endif

@@ -2,15 +2,9 @@
 necessary for the code are created*/
 
 #include "create_folder.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <string.h>
 
 
-//Creates the folder Results, where all outputs from runs are saved.
+//Creates the folder RESULTS, where all outputs from runs are saved.
 void results_folder(void){
     
     const char* foldername = "RESULTS";  //Folder name
@@ -30,42 +24,18 @@ void results_folder(void){
     }
     else{
         //Folder already exist
-        printf("Folder Results already exists. \n");
+        printf("Folder RESULTS already exists. \n");
     }
 }
 
 //Creates the folder to saves all the results of a run
-char* plasma_files_folder(void){
-    //Folder name
-    char* foldername = NULL;
-    char buffer[200];
+void plasma_files_folder(char *foldername){
     
-    
-    //Ask user to input folder name
-    printf("Enter folder name: \n");
-    
-    
-    scanf("RESULTS");
+    //scanf("RESULTS");
     //Checks if the folder Results exists
     if( access("RESULTS", F_OK) == -1 ){
         printf("Folder does not exist. \n");
     }
-    
-    
-    //Creates the folder nanme
-    if( fgets(buffer, sizeof(buffer), stdin) ){
-    	
-    	//Allocate the memory for the String
-    	foldername = (char*)malloc( strlen(buffer)+1 );
-        if(foldername != NULL){
-            
-            strcpy(foldername, buffer);
-        }
-        else{
-            printf("Error reading input. \n");
-        }
-    }
-    
     
     //Full folder path
     char subFolderPath[200];
@@ -80,9 +50,7 @@ char* plasma_files_folder(void){
             printf("Error creating sub folder. \n");
         }
     }
-    
-    return foldername;
-    
+ 
 }
 
 

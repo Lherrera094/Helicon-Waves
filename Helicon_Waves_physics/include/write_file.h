@@ -6,6 +6,10 @@ values for the plots*/
 
 #define WRITE_FILE_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 //Functions that save in files the results of the runs and simulations
 void write_plasma_params(double iv[], double pp[], double wc[], char* foldername); //Write main plasma and wave parameters in a .txt file
