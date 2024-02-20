@@ -21,6 +21,7 @@
 #include "create_folder.h"
 #include "write_file.h"
 #include "read_input.h"
+#include "field_assemble.h"
 
 
 int main(void){
@@ -32,12 +33,12 @@ int main(void){
 	//Saves the time at which the program started
  	start = clock();
  	
- 	//Reads the input_values.txt file
- 	double int_value[7];
+ 	//Reads the input_values.txt file, eigenvalue beta and transverse wave number arrays to save values
+ 	double int_value[7], b[2], T[2];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
  	
- 	//input_values = {n_0, B_0, w, K, a, v, m}; Array saves input values
+ 	//int_value = {n_0, B_0, w, K, a, v, m}; Array saves input values
  	
  	//Main Plasma Parameters 
  	double wp = w_p(int_value[0]);		//Plasma Frequency [rad/s]
@@ -51,20 +52,27 @@ int main(void){
  	double K_min = k_min(del,K_s);					//k minimum
  	double K_max = k_max(del,K_s);					//k maximum
  	double wave_char[] = {K_w, K_s, K_min, K_max, del};
+ 
+ 	
+ 	//eigen value and transverse
+ 	eigenbeta_value(K_w, int_value[3], del, b);
+ 	transverse_T(b, int_value[3], T);
  	
  	//Creates folder RESULTS and run folder
  	results_folder();
  	plasma_files_folder(foldername);
  	
  	//Writes file with plasma parameters
- 	write_plasma_params(int_value, plas_par, wave_char, foldername);
+ 	write_plasma_params(int_value, plas_par, wave_char,b , T, foldername);
+ 	
+ 	//Field calculations and save in .csv file
+ 	field_assembling(b, T, int_value, foldername);
  		
 	
 	//Saves the time at which the process ended
 	end = clock();
 	cpu_time_used = ( (double)(end-start) )/CLOCKS_PER_SEC;
 	printf("Program Running Time = %.2e s.\n", cpu_time_used);
-	//printf("%f \n", double end);
 	
  	return 0;
  

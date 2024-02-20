@@ -2,8 +2,6 @@
 characteristics functions*/
 
 #include "plasma_params.h"
-#include "constants.h"
-#include <math.h>
 
 
 //Plasma frequency 
@@ -34,7 +32,7 @@ double w_c(double B){
 }
 
 
-//Wave Number
+//Helicon Wave Number
 //Receives: external magnetic field(B), plasma density(n) and wave frequency(w)
 double k_w(double B, double n, double w){
     
@@ -66,6 +64,22 @@ double k_max(double d, double k){
     return sqrt(d/(1-d))*k;
 }
 
+
+//Eigenvalue beta for H and TG waves
+//Receives: Helicon wave number (K_w), wave number(k), damping factor(delt) and wave type
+//H mode = 1; TG mode = 2;
+void eigenbeta_value(double K_w, double K, double delta, double b[]){
+    b[0] = pow(K_w,2)/K ;
+    b[1] = K/delta;
+}
+
+
+//Transverse wave number
+//Receives: H-TG eigenvalue (b)
+void transverse_T(double b[], double K, double T[]){
+    T[0] = sqrt( pow(b[0],2) - pow(K,2) );
+    T[1] = sqrt( pow(b[1],2) - pow(K,2) );
+}
 
 
 

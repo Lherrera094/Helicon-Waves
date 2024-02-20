@@ -4,8 +4,8 @@ External magnetic field (B_0) = 1.20e-01 T.
 External wave frequency (w) = 2.71e+07 Hz. 
 Wave number (K) = 13.60 m^-1. 
 Plasma radius (a) = 0.025 m. 
-Collission frequency (v) = 0.00e+00 s^-1. 
-Azimuthal mode number (m) = 1.000000. 
+Collission frequency (ν) = 0.00e+00 s^-1. 
+Azimuthal mode number (m) = 1.0. 
 
 ---------Plasma Parameters---------- 
 Plasma frequency (W_p) = 2.52e+11 rad/s. 
@@ -16,4 +16,12 @@ Wave number (K_w) = 30.166807 m^-1.
 Skin number (K_s) = 8.42e+02 m^-1. 
 Minimum wave number (K_min) = 2.162733 m^-1. 
 Maximum wave number (K_max) = 30.186207 m^-1. 
-Damping factor (delta) = 0.001285 . 
+Damping factor (δ) = 0.001285 . 
+
+---------Helicon Wave---------
+Eigenvalue (β_1) = 66.914430 m^-1. 
+Transverse wave number (T_1) = 65.517791 m^-1. 
+
+---------TG Wave---------
+Eigenvalue (β_2) = 10584.049760 m^-1. 
+Transverse wave number (T_2) = 10584.041023 m^-1. 

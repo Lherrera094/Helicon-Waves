@@ -8,7 +8,6 @@ double J_m(int m, double x){
     for(int n = 0; n < 15; n++){
         J += ( pow(-1, n)/( fact(n)*fact(n+m) ) )*( pow(x/2, (2*n)+m) );
     }
-    
     return J;
 }
 
