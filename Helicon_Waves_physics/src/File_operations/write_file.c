@@ -11,34 +11,34 @@ void write_plasma_params(double iv[], double pp[], double wc[], double b[], doub
     
     FILE* fptr = fopen(filepath, "w");;		//Declares and opens new file Plasma_Parameters.txt
     
-    fprintf(fptr, "---------Input Values---------- \n");
-    fprintf(fptr, "Plasma density (n_0) = %.2e m^-3. \n", iv[0]);
-    fprintf(fptr, "External magnetic field (B_0) = %.2e T. \n", iv[1]);
-    fprintf(fptr, "External wave frequency (w) = %.2e Hz. \n", iv[2]);
-    fprintf(fptr, "Wave number (K) = %.2f m^-1. \n", iv[3]);
-    fprintf(fptr, "Plasma radius (a) = %.3f m. \n", iv[4]);
+    fprintf(fptr, "-----------------Input Values------------------ \n");
+    fprintf(fptr, "Plasma density (n_0) = %.1e cm^-3. \n", iv[0]);
+    fprintf(fptr, "External magnetic field (B_0) = %.0f G. \n", iv[1]);
+    fprintf(fptr, "External wave frequency (w) = %.2e rad/s. \n", 2*pi*iv[2]);
+    fprintf(fptr, "Wave number (K) = %.4f cm^-1. \n", iv[3]);
+    fprintf(fptr, "Plasma radius (a) = %.2f cm. \n", iv[4]);
     fprintf(fptr, "Collission frequency (\u03BD) = %.2e s^-1. \n", iv[5]);
     fprintf(fptr, "Azimuthal mode number (m) = %.1f. \n", iv[6]);
     
-    fprintf(fptr, "\n---------Plasma Parameters---------- \n");
+    fprintf(fptr, "\n---------------Plasma Parameters-------------- \n");
     fprintf(fptr, "Plasma frequency (W_p) = %.2e rad/s. \n", pp[0]);
     fprintf(fptr, "Cyclotron frequency (W_c) = %.2e rad/s. \n", pp[1]);
     
-    fprintf(fptr, "\n---------Wave Characteristics---------\n");
-    fprintf(fptr, "Wave number (K_w) = %f m^-1. \n", wc[0]);
-    fprintf(fptr, "Skin number (K_s) = %.2e m^-1. \n", wc[1]);
-    fprintf(fptr, "Minimum wave number (K_min) = %f m^-1. \n", wc[2]);
-    fprintf(fptr, "Maximum wave number (K_max) = %f m^-1. \n", wc[3]);
+    fprintf(fptr, "\n-------------Wave Characteristics-------------\n");
+    fprintf(fptr, "Wave number (K_w) = %f cm^-1. \n", wc[0]);
+    fprintf(fptr, "Skin number (K_s) = %.3f cm^-1. \n", wc[1]);
+    fprintf(fptr, "Minimum wave number (K_min) = %f cm^-1. \n", wc[2]);
+    fprintf(fptr, "Maximum wave number (K_max) = %f cm^-1. \n", wc[3]);
     fprintf(fptr, "Damping factor (\u03B4) = %f . \n", wc[4]);
     
     
-    fprintf(fptr, "\n---------Helicon Wave---------\n");
-    fprintf(fptr, "Eigenvalue (\u03B2_1) = %f m^-1. \n", b[0]);
-    fprintf(fptr, "Transverse wave number (T_1) = %f m^-1. \n", T[0]);
+    fprintf(fptr, "\n-----------------Helicon Wave-----------------\n");
+    fprintf(fptr, "Eigenvalue (\u03B2_1) = %f cm^-1. \n", b[0]);
+    fprintf(fptr, "Transverse wave number (T_1) = %f cm^-1. \n", T[0]);
     
-    fprintf(fptr, "\n---------TG Wave---------\n");
-    fprintf(fptr, "Eigenvalue (\u03B2_2) = %f m^-1. \n", b[1]);
-    fprintf(fptr, "Transverse wave number (T_2) = %f m^-1. \n", T[1]);
+    fprintf(fptr, "\n--------------------TG Wave-------------------\n");
+    fprintf(fptr, "Eigenvalue (\u03B2_2) = %f cm^-1. \n", b[1]);
+    fprintf(fptr, "Transverse wave number (T_2) = %f cm^-1. \n", T[1]);
     
     fclose(fptr);
 }

@@ -9,7 +9,7 @@ double B_rComponent(double b, double T, double k, int m, double r){
     
     double Br;
     Br = ( ((b+k)*J_m(m-1,T*r)) + ((b-k)*J_m(m+1,T*r)) );
-    
+    printf("%.5f \n",J_m(m+1,T*r));
     return Br;
 }
 

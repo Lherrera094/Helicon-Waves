@@ -4,8 +4,9 @@
 
 double J_m(int m, double x){
     
-    float J = 0;
-    for(int n = 0; n < 15; n++){
+    //printf("%.5f",x)
+    double J = 0;
+    for(int n = 0; n < 6; n++){
         J += ( pow(-1, n)/( fact(n)*fact(n+m) ) )*( pow(x/2, (2*n)+m) );
     }
     return J;

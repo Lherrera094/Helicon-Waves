@@ -10,6 +10,7 @@ values for the plots*/
 #include <stdlib.h>
 #include <string.h>
 #include "omp.h"
+#include "constants.h"
 
 
 //Functions that save in files the results of the runs and simulations

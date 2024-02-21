@@ -37,7 +37,6 @@ int main(void){
  	double int_value[7], b[2], T[2];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
- 	
  	//int_value = {n_0, B_0, w, K, a, v, m}; Array saves input values
  	
  	//Main Plasma Parameters 
@@ -48,7 +47,7 @@ int main(void){
  	//Wave Characteristics
  	double del = delt(int_value[2], wc, int_value[5]);		//Damping Factor
  	double K_s = k_s(wp);						//Skin number
- 	double K_w = k_w(int_value[1], int_value[0], int_value[2]);	//Wave number
+ 	double K_w = k_w(K_s, del);					//Wave number
  	double K_min = k_min(del,K_s);					//k minimum
  	double K_max = k_max(del,K_s);					//k maximum
  	double wave_char[] = {K_w, K_s, K_min, K_max, del};
@@ -68,7 +67,6 @@ int main(void){
  	//Field calculations and save in .csv file
  	field_assembling(b, T, int_value, foldername);
  		
-	
 	//Saves the time at which the process ended
 	end = clock();
 	cpu_time_used = ( (double)(end-start) )/CLOCKS_PER_SEC;

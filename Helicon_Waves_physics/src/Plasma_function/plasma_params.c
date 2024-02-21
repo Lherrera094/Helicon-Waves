@@ -27,17 +27,16 @@ double k_s(double w){
 //Receives: external magnetic field (B)
 double w_c(double B){
     
-    return (e*B)/m_e;
+    return (e*B)/(c*m_e);
      
 }
 
 
 //Helicon Wave Number
 //Receives: external magnetic field(B), plasma density(n) and wave frequency(w)
-double k_w(double B, double n, double w){
+double k_w(double k, double d){
     
-    double k = (w*n*mu_0*e)/B;
-    return sqrt(k);
+    return sqrt(d)*k;
     
 }
 
@@ -46,7 +45,7 @@ double k_w(double B, double n, double w){
 //Receives: Wave frequency(w), cyclotron frequency(wc), collision frequency(v)
 double delt(double w, double wc, double v){
     int i = 1;
-    return (w+(i*v))/wc;
+    return ( (2*pi*w)+(i*v))/wc;
     
 }
 

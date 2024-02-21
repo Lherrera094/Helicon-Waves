@@ -13,7 +13,7 @@ characteristics functions*/
 double w_p(double n);
 double k_s(double w);
 double w_c(double B);
-double k_w(double w, double n, double B);
+double k_w(double k, double d);
 double delt(double w, double wc, double v);
 double k_min(double d, double k);
 double k_max(double d, double k);
