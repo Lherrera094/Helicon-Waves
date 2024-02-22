@@ -5,12 +5,13 @@ computes their value and save it in an array to save it in a .csv file*/
 
 #define FIELD_ASSEMBLE_H
 
-#define SIZE 1000
+#define SIZE 10000
  
 #include <stdio.h>
 #include <stdlib.h>
 #include "constants.h"
 #include "B_field.h"
+#include "E_field.h"
 #include "omp.h"
 #include "write_file.h"
 

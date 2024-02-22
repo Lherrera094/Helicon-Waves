@@ -60,8 +60,8 @@ void write_fields_values(double (*B1)[4], double (*B2)[4], int size, char* folde
     {
         for(int i = 0; i <= size; i++){
             
-            fprintf(fptrB_H, "%.5f, %.5f, %.5f, %.5f \n", B1[i][0], B1[i][1], B1[i][2], B1[i][3]);
-            fprintf(fptrB_TG, "%.5f, %.5f, %.5f, %.5f \n", B2[i][0], B2[i][1], B2[i][2], B2[i][3]);
+            fprintf(fptrB_H, "%.5e, %.5e, %.5e, %.5e \n", B1[i][0], B1[i][1], B1[i][2], B1[i][3]);
+            fprintf(fptrB_TG, "%.5e, %.5e, %.5e, %.5e \n", B2[i][0], B2[i][1], B2[i][2], B2[i][3]);
                 
         }//end for
     }//end parallelization

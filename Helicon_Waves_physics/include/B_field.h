@@ -6,10 +6,11 @@ H and TG wave*/
 #define B_FIELD_H
 
 #include <stdio.h>
-#include "bessel_function.h"
+#include <math.h>
 
 double B_rComponent(double b, double T, double k, int m, double r);
 double B_thComponent(double b, double T, double k, int m, double r);
 double B_zComponent(double T, int m, double r);
+double amplitud_ratio(double b[], double T[], double a, int m);
 
 #endif

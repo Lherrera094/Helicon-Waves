@@ -8,8 +8,7 @@ H and TG wave*/
 double B_rComponent(double b, double T, double k, int m, double r){
     
     double Br;
-    Br = ( ((b+k)*J_m(m-1,T*r)) + ((b-k)*J_m(m+1,T*r)) );
-    printf("%.5f \n",J_m(m+1,T*r));
+    Br = ((b+k)*jn(m-1,T*r)) + ((b-k)*jn(m+1,T*r));
     return Br;
 }
 
@@ -19,8 +18,7 @@ double B_rComponent(double b, double T, double k, int m, double r){
 double B_thComponent(double b, double T, double k, int m, double r){
     
     double Bth;
-    Bth = ( ((b+k)*J_m(m-1,T*r)) - ((b-k)*J_m(m+1,T*r)) );
-    
+    Bth = ( (b+k)*jn(m-1,T*r)) - ((b-k)*jn(m+1,T*r));
     return Bth;
 }
 
@@ -30,7 +28,14 @@ double B_thComponent(double b, double T, double k, int m, double r){
 double B_zComponent(double T, int m, double r){
     
     double Bz;
-    Bz = -2*T*J_m(m,T*r);
-    
+    Bz = -2*T*jn(m,T*r);
     return Bz;
+}
+
+double amplitud_ratio(double b[], double T[], double a, int m){
+    
+    double A;
+    A = -(b[0]*T[0]*jn(m,T[0]*a))/(b[1]*T[1]*jn(m,T[1]*a));
+    return A;
+
 }

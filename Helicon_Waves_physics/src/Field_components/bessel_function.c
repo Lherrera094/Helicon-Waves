@@ -5,12 +5,15 @@
 double J_m(int m, double x){
     
     //printf("%.5f",x)
-    double J = 0;
-    for(int n = 0; n < 6; n++){
-        J += ( pow(-1, n)/( fact(n)*fact(n+m) ) )*( pow(x/2, (2*n)+m) );
-    }
+    //double J = 0;
+    //for(int n = 0; n < 30; n++){
+        //J += ( pow(-1, n)/( fact(n)*fact(n+m) ) )*( pow(x/2, (2*n)+m) );
+    //}
+    
     return J;
 }
+
+
 
 
 //Computes the factorial of number n
