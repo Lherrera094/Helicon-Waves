@@ -1,6 +1,6 @@
-Folder name : Test_Bessel2
+Folder name : Electric_field
 n_0 = 2.0e13
-B_0 = 200 
+B_0 = 20 
 W = 27.12e6
 k = 0.136
 a = 2.5

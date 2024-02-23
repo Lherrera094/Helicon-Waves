@@ -37,7 +37,7 @@ int main(void){
  	double int_value[7], b[2], T[2];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
- 	//int_value = {n_0, B_0, w, K, a, v, m}; Array saves input values
+ 	//int_value = {n_0, B_0, f_0, K, a, v, m}; Array saves input values
  	
  	//Main Plasma Parameters 
  	double wp = w_p(int_value[0]);		//Plasma Frequency [rad/s]

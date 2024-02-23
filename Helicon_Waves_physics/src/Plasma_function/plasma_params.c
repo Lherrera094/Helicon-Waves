@@ -33,7 +33,7 @@ double w_c(double B){
 
 
 //Helicon Wave Number
-//Receives: external magnetic field(B), plasma density(n) and wave frequency(w)
+//Receives: Skin wave number(k_s), Damping factor (d)
 double k_w(double k, double d){
     
     return sqrt(d)*k;
@@ -43,9 +43,9 @@ double k_w(double k, double d){
 
 //Damping factor
 //Receives: Wave frequency(w), cyclotron frequency(wc), collision frequency(v)
-double delt(double w, double wc, double v){
+double delt(double f_0, double wc, double v){
     int i = 1;
-    return ( (2*pi*w)+(i*v))/wc;
+    return ( (2*pi*f_0)+(i*v))/wc;
     
 }
 

@@ -44,17 +44,23 @@ void write_plasma_params(double iv[], double pp[], double wc[], double b[], doub
 }
 
 
-void write_fields_values(double (*B1)[4], double (*B2)[4], int size, char* foldername){
+void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], double (*E2)[4], int size, char* foldername){
 
-    char filepath1[300], filepath2[300];
-    snprintf( filepath1, sizeof(filepath1), "RESULTS/%s%s%s", foldername, "/", "B_H_wave.csv" );
-    snprintf( filepath2, sizeof(filepath2), "RESULTS/%s%s%s", foldername, "/", "B_TG_wave.csv" );
+    char filepathB1[300], filepathB2[300],filepathE1[300], filepathE2[300];
+    snprintf( filepathB1, sizeof(filepathB1), "RESULTS/%s%s%s", foldername, "/", "B_H_wave.csv" );
+    snprintf( filepathB2, sizeof(filepathB2), "RESULTS/%s%s%s", foldername, "/", "B_TG_wave.csv" );
+    snprintf( filepathE1, sizeof(filepathE1), "RESULTS/%s%s%s", foldername, "/", "E_H_wave.csv" );
+    snprintf( filepathE2, sizeof(filepathE2), "RESULTS/%s%s%s", foldername, "/", "E_TG_wave.csv" );
     
-    FILE* fptrB_H = fopen(filepath1, "w");		//Declares and opens new file B_H_wave.txt
-    FILE* fptrB_TG= fopen(filepath2, "w");		//Declares and opens new file B_TG_wave.txt
+    FILE* fptrB_H = fopen(filepathB1, "w");		//Declares and opens new file B_H_wave.txt
+    FILE* fptrB_TG= fopen(filepathB2, "w");		//Declares and opens new file B_TG_wave.txt
+    FILE* fptrE_H = fopen(filepathE1, "w");		//Declares and opens new file B_H_wave.txt
+    FILE* fptrE_TG= fopen(filepathE2, "w");		//Declares and opens new file B_TG_wave.txt
     
     fprintf(fptrB_H, "r(m), B_r(T), B_theta(T), B_z(T) \n");
     fprintf(fptrB_TG, "r(m), B_r(T), B_theta(T), B_z(T) \n");
+    fprintf(fptrE_H, "r(m), E_r(T), E_theta(T), E_z(T) \n");
+    fprintf(fptrE_TG, "r(m), E_r(T), E_theta(T), E_z(T) \n");
     
     #pragma omp parallel for
     {
@@ -62,12 +68,16 @@ void write_fields_values(double (*B1)[4], double (*B2)[4], int size, char* folde
             
             fprintf(fptrB_H, "%.5e, %.5e, %.5e, %.5e \n", B1[i][0], B1[i][1], B1[i][2], B1[i][3]);
             fprintf(fptrB_TG, "%.5e, %.5e, %.5e, %.5e \n", B2[i][0], B2[i][1], B2[i][2], B2[i][3]);
+            fprintf(fptrE_H, "%.5e, %.5e, %.5e, %.5e \n", E1[i][0], E1[i][1], E1[i][2], E1[i][3]);
+            fprintf(fptrE_TG, "%.5e, %.5e, %.5e, %.5e \n", E2[i][0], E2[i][1], E2[i][2], E2[i][3]);
                 
         }//end for
     }//end parallelization
     
     fclose(fptrB_H);
     fclose(fptrB_TG);
+    fclose(fptrE_H);
+    fclose(fptrE_TG);
 
 }
 
