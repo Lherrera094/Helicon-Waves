@@ -80,6 +80,15 @@ void transverse_T(double b[], double K, double T[]){
     T[1] = sqrt( pow(b[1],2) - pow(K,2) );
 }
 
+void parametric_K(double k[], double d, double ks, double b[], int m){
+    
+    for(int i = 0; i <= m; i++){
+    
+        k[i] = (d/b[i])*( pow(b[i],2) + pow(ks,2) );
+        
+    }
+}
+
 
 
 

@@ -54,7 +54,7 @@ void read_input(const char *filename, double input_val[]){
     //Skip first line
     fscanf(input, "%*[^\n]\n");
     
-    for(int i = 0; i < 7; i++){
+    for(int i = 0; i < 6; i++){
         if( fscanf(input, "%s = %lf", name, &value) !=2 ){
             printf("Error accessing the values. \n");
             exit(1);

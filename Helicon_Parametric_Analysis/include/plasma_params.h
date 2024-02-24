@@ -19,5 +19,6 @@ double k_min(double d, double k);
 double k_max(double d, double k);
 void eigenbeta_value(double K_w, double K, double delta, double b[]);
 void transverse_T(double b[], double K, double T[]);
+void parametric_K(double k[], double d, double ks, double b[], int m);
 
 #endif

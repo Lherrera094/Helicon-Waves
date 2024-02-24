@@ -14,8 +14,9 @@ values for the plots*/
 
 
 //Functions that save in files the results of the runs and simulations
-void write_plasma_params(double iv[], double pp[], double wc[], double b[], double T[], char* foldername); //Write main plasma and wave parameters in a .txt file
+void write_plasma_params(double iv[], double pp[], double wc[], char* foldername); //Write main plasma and wave parameters in a .txt file
 void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], double (*E2)[4], int size, char* foldername);
+void write_parametric_K(double k[], double beta[], int m, char* foldername);
 
 
 #endif

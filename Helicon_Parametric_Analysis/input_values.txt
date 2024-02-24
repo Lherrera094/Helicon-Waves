@@ -1,8 +1,7 @@
-Folder name : Electric_field
+Folder name : Parametric_K
 n_0 = 2.0e13
-B_0 = 20 
+B_0 = 100 
 W = 27.12e6
-k = 0.136
 a = 2.5
 v = 0
 m = 1

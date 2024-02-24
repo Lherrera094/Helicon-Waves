@@ -4,7 +4,7 @@ values for the plots*/
 
 #include "write_file.h"
 
-void write_plasma_params(double iv[], double pp[], double wc[], double b[], double T[], char* foldername){
+void write_plasma_params(double iv[], double pp[], double wc[], char* foldername){
     
     char filepath[300];
     snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "Plasma_Parameters.txt" );
@@ -15,10 +15,10 @@ void write_plasma_params(double iv[], double pp[], double wc[], double b[], doub
     fprintf(fptr, "Plasma density (n_0) = %.1e cm^-3. \n", iv[0]);
     fprintf(fptr, "External magnetic field (B_0) = %.0f G. \n", iv[1]);
     fprintf(fptr, "External wave frequency (w) = %.2e rad/s. \n", 2*pi*iv[2]);
-    fprintf(fptr, "Wave number (K) = %.4f cm^-1. \n", iv[3]);
-    fprintf(fptr, "Plasma radius (a) = %.2f cm. \n", iv[4]);
-    fprintf(fptr, "Collission frequency (\u03BD) = %.2e s^-1. \n", iv[5]);
-    fprintf(fptr, "Azimuthal mode number (m) = %.1f. \n", iv[6]);
+    //fprintf(fptr, "Wave number (K) = %.4f cm^-1. \n", iv[3]);
+    fprintf(fptr, "Plasma radius (a) = %.2f cm. \n", iv[3]);
+    fprintf(fptr, "Collission frequency (\u03BD) = %.2e s^-1. \n", iv[4]);
+    fprintf(fptr, "Azimuthal mode number (m) = %.1f. \n", iv[5]);
     
     fprintf(fptr, "\n---------------Plasma Parameters-------------- \n");
     fprintf(fptr, "Plasma frequency (W_p) = %.2e rad/s. \n", pp[0]);
@@ -30,15 +30,6 @@ void write_plasma_params(double iv[], double pp[], double wc[], double b[], doub
     fprintf(fptr, "Minimum wave number (K_min) = %f cm^-1. \n", wc[2]);
     fprintf(fptr, "Maximum wave number (K_max) = %f cm^-1. \n", wc[3]);
     fprintf(fptr, "Damping factor (\u03B4) = %f . \n", wc[4]);
-    
-    
-    fprintf(fptr, "\n-----------------Helicon Wave-----------------\n");
-    fprintf(fptr, "Eigenvalue (\u03B2_1) = %f cm^-1. \n", b[0]);
-    fprintf(fptr, "Transverse wave number (T_1) = %f cm^-1. \n", T[0]);
-    
-    fprintf(fptr, "\n--------------------TG Wave-------------------\n");
-    fprintf(fptr, "Eigenvalue (\u03B2_2) = %f cm^-1. \n", b[1]);
-    fprintf(fptr, "Transverse wave number (T_2) = %f cm^-1. \n", T[1]);
     
     fclose(fptr);
 }
@@ -79,6 +70,21 @@ void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], doub
     fclose(fptrE_H);
     fclose(fptrE_TG);
 
+}
+
+void write_parametric_K(double k[], double beta[], int m, char* foldername){
+    char filepath[300];
+    snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "K_beta.csv" );
+    
+    FILE* fptrKB = fopen(filepath, "w");		//Declares and opens new file K_beta.csv
+    
+    fprintf(fptrKB, "k, beta \n");
+    
+    for(int i = 0; i <= m; i++){
+        fprintf(fptrKB, "%.5e, %.5e \n", k[i], beta[i]);
+    }
+    
+    fclose(fptrKB);
 }
 
 
