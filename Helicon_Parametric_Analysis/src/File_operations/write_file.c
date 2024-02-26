@@ -15,7 +15,6 @@ void write_plasma_params(double iv[], double pp[], double wc[], char* foldername
     fprintf(fptr, "Plasma density (n_0) = %.1e cm^-3. \n", iv[0]);
     fprintf(fptr, "External magnetic field (B_0) = %.0f G. \n", iv[1]);
     fprintf(fptr, "External wave frequency (w) = %.2e rad/s. \n", 2*pi*iv[2]);
-    //fprintf(fptr, "Wave number (K) = %.4f cm^-1. \n", iv[3]);
     fprintf(fptr, "Plasma radius (a) = %.2f cm. \n", iv[3]);
     fprintf(fptr, "Collission frequency (\u03BD) = %.2e s^-1. \n", iv[4]);
     fprintf(fptr, "Azimuthal mode number (m) = %.1f. \n", iv[5]);
@@ -75,7 +74,7 @@ void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], doub
 
 void write_parametric_K(double k[], double beta[], int m, char* foldername){
     char filepath[300];
-    snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "K_beta.csv" );
+    snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "Beta_k_relation.csv" );
     
     FILE* fptrKB = fopen(filepath, "w");		//Declares and opens new file K_beta.csv
     

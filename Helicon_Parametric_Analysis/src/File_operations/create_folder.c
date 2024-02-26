@@ -38,13 +38,13 @@ void plasma_files_folder(char *foldername){
     }
     
     //Full folder path
-    char subFolderPath[200];
+    char subFolderPath[100];
     sprintf(subFolderPath, "RESULTS/%s", foldername);
     
     //Checks if the subfolder exists
     if( access(subFolderPath, F_OK) == -1){
         //If does not exist, it create one
-        int status = mkdir(subFolderPath, 0777);
+        int status = mkdir(subFolderPath,0777);
         
         if( status != 0){
             printf("Error creating sub folder. \n");
