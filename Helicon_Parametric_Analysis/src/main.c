@@ -35,17 +35,14 @@ int main(void){
  	
  	//Reads the input_values.txt file, eigenvalue beta and transverse wave number arrays to save values
  	int ARRAY_SIZE = 10000;
- 	double int_value[6], beta[ARRAY_SIZE], k[ARRAY_SIZE];
+ 	double int_value[6], beta[ARRAY_SIZE], k[ARRAY_SIZE], k_boundary[ARRAY_SIZE];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
  	//int_value = {n_0, B_0, f_0, K, a, v, m}; Array saves input values
  	
  	double dx = 0.01;
- 	
  	for(int i = 0; i <= ARRAY_SIZE; i++){
  	    beta[i] = dx;
- 	    //printf("%.3f \n", beta[i]);
- 	    
  	    dx += 0.01;
  	}
  	
@@ -61,12 +58,21 @@ int main(void){
  	double K_min = k_min(del,K_s);					//k minimum
  	double K_max = k_max(del,K_s);					//k maximum
  	double wave_char[] = {K_w, K_s, K_min, K_max, del};
- 	
- 	printf("K_max = %.3f \n", K_max);
+
  	
  	parametric_K(k, del, K_s, beta, ARRAY_SIZE);
- 
+
+	//Computation for boundary conditions
+	double dk = (K_max - K_min)/ARRAY_SIZE;
+	k_boundary[0] = K_min;
+	k_boundary[-1] = K_max;
  	
+	printf("dk = %.10f \n",dk);
+	for(int i = 0; i<= ARRAY_SIZE-2 ; i++){
+		k_boundary[i+1] = k_boundary[i] + dk;
+		printf("k value: %.7f \n", k_boundary[i+1]);
+	}
+
  	//eigen value and transverse
  	//eigenbeta_value(K_w, int_value[3], del, b);
  	//transverse_T(b, int_value[3], T);

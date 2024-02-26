@@ -8,5 +8,7 @@ that satisfy the conducting boundary conditions*/
 #include <math.h>
 #include <stdio.h>
 
+double left_hand_side(double beta, double k, double a, double T, int m);
+double right_hand_side(double beta[], double k, double a, double T[], int m);
 
 #endif
