@@ -72,6 +72,7 @@ void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], doub
 
 }
 
+
 void write_parametric_K(double k[], double beta[], int m, char* foldername){
     char filepath[300];
     snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "K_beta.csv" );
