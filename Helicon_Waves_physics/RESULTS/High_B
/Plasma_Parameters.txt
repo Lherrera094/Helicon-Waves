@@ -2,7 +2,7 @@
 Plasma density (n_0) = 2.0e+13 cm^-3. 
 External magnetic field (B_0) = 1200 G. 
 External wave frequency (w) = 1.70e+08 rad/s. 
-Wave number (K) = 0.1360 cm^-1. 
+Wave number (K) = 0.4680 cm^-1. 
 Plasma radius (a) = 2.50 cm. 
 Collission frequency (ν) = 0.00e+00 s^-1. 
 Azimuthal mode number (m) = 1.0. 
@@ -19,9 +19,9 @@ Maximum wave number (K_max) = 0.214178 cm^-1.
 Damping factor (δ) = 0.008074 . 
 
 -----------------Helicon Wave-----------------
-Eigenvalue (β_1) = 0.334572 cm^-1. 
-Transverse wave number (T_1) = 0.305684 cm^-1. 
+Eigenvalue (β_1) = 0.097226 cm^-1. 
+Transverse wave number (T_1) = -nan cm^-1. 
 
 --------------------TG Wave-------------------
-Eigenvalue (β_2) = 16.845046 cm^-1. 
-Transverse wave number (T_2) = 16.844497 cm^-1. 
+Eigenvalue (β_2) = 57.966775 cm^-1. 
+Transverse wave number (T_2) = 57.964886 cm^-1. 
