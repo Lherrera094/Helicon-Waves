@@ -1,8 +1,8 @@
-Folder name : Low_mode
+Folder name : B0_20. n0_2e13.
 n_0 = 2.0e13
-B_0 = 1200 
+B_0 = 20 
 W = 27.12e6
-k = 0.03833
+k = 2.3
 a = 2.5
 v = 0
 m = 1
