@@ -17,6 +17,7 @@ values for the plots*/
 void write_plasma_params(double iv[], double pp[], double wc[], char* foldername); //Write main plasma and wave parameters in a .txt file
 void write_fields_values(double (*B1)[4], double (*B2)[4], double (*E1)[4], double (*E2)[4], int size, char* foldername);
 void write_parametric_K(double k[], double beta[], int m, char* foldername);
+void write_eigenvalues_K(double rhs[], double lhs[], double k[], int m, char* foldername);
 
 
 #endif

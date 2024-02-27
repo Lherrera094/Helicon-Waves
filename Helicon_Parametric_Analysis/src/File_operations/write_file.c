@@ -87,4 +87,19 @@ void write_parametric_K(double k[], double beta[], int m, char* foldername){
     fclose(fptrKB);
 }
 
+void write_eigenvalues_K(double rhs[], double lhs[], double k[], int m, char* foldername){
+    char filepath[300];
+    snprintf( filepath, sizeof(filepath), "RESULTS/%s%s%s", foldername, "/", "eigenvaluesK.csv" );
+    
+    FILE* fptr = fopen(filepath, "w");		//Declares and opens new file K_beta.csv
+    
+    fprintf(fptr, "k,lhs,rhs\n");
+    
+    for(int i = 0; i <= m; i++){
+        fprintf(fptr, "%.5e, %.5e, %.5e \n", k[i], lhs[i], rhs[i]);
+    }
+    
+    fclose(fptr);
+}
+
 

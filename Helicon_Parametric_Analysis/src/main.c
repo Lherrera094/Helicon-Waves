@@ -21,7 +21,8 @@
 #include "create_folder.h"
 #include "write_file.h"
 #include "read_input.h"
-#include "field_assemble.h"
+#include "conduct_boundary.h"
+#include "omp.h"
 
 
 int main(void){
@@ -34,11 +35,11 @@ int main(void){
  	start = clock();
  	
  	//Reads the input_values.txt file, eigenvalue beta and transverse wave number arrays to save values
- 	int ARRAY_SIZE = 10000;
+ 	int ARRAY_SIZE = 1000;
  	double int_value[6], beta[ARRAY_SIZE], k[ARRAY_SIZE], k_boundary[ARRAY_SIZE];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
- 	//int_value = {n_0, B_0, f_0, K, a, v, m}; Array saves input values
+ 	//int_value = {n_0, B_0, f_0, a, v, m}; Array saves input values
  	
  	double dx = 0.01;
  	for(int i = 0; i <= ARRAY_SIZE; i++){
@@ -63,19 +64,29 @@ int main(void){
  	parametric_K(k, del, K_s, beta, ARRAY_SIZE);
 
 	//Computation for boundary conditions
-	double dk = (K_max - K_min)/ARRAY_SIZE;
+	double dk = (0.8 - K_min)/ARRAY_SIZE;
+	double rhs[ARRAY_SIZE], lhs[ARRAY_SIZE];
 	k_boundary[0] = K_min;
-	k_boundary[-1] = K_max;
+	k_boundary[ARRAY_SIZE-1] = 0.8;
  	
-	printf("dk = %.10f \n",dk);
-	for(int i = 0; i<= ARRAY_SIZE-2 ; i++){
-		k_boundary[i+1] = k_boundary[i] + dk;
-		printf("k value: %.7f \n", k_boundary[i+1]);
+	#pragma omp parallel for 
+	{
+		for(int i = 0; i<= ARRAY_SIZE-1 ; i++){
+			k_boundary[i+1] = k_boundary[i] + dk;
+		}
 	}
 
  	//eigen value and transverse
- 	//eigenbeta_value(K_w, int_value[3], del, b);
- 	//transverse_T(b, int_value[3], T);
+	double b[2], T[2];
+	#pragma omp parallel for
+	{
+		for(int j = 0; j <= ARRAY_SIZE-1; j++){
+			eigenbeta_value(K_w, k_boundary[j], del, b);
+			transverse_T(b, k_boundary[j], T);
+			lhs[j] = left_hand_side(b[0], k_boundary[j], int_value[3], T[0], int_value[5]);
+			rhs[j] = right_hand_side(b,k_boundary[j],int_value[3],T,int_value[5]);
+		}
+	}
  	
  	//Creates folder RESULTS and run folder
  	results_folder();
@@ -84,9 +95,8 @@ int main(void){
  	//Writes file with plasma parameters
  	write_plasma_params(int_value, plas_par, wave_char, foldername);
  	write_parametric_K(k, beta, ARRAY_SIZE, foldername);
- 	
- 	//Field calculations and save in .csv file
- 	//field_assembling(b, T, int_value, foldername);
+	write_eigenvalues_K(rhs, lhs, k_boundary, ARRAY_SIZE, foldername);
+
  		
 	//Saves the time at which the process ended
 	end = clock();
