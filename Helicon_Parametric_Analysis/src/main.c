@@ -35,7 +35,7 @@ int main(void){
  	start = clock();
  	
  	//Reads the input_values.txt file, eigenvalue beta and transverse wave number arrays to save values
- 	int ARRAY_SIZE = 1000;
+ 	int ARRAY_SIZE = 50000;
  	double int_value[6], beta[ARRAY_SIZE], k[ARRAY_SIZE], k_boundary[ARRAY_SIZE];
  	read_input("input_values.txt", int_value);
  	char *foldername = read_foldername("input_values.txt");
@@ -64,10 +64,10 @@ int main(void){
  	parametric_K(k, del, K_s, beta, ARRAY_SIZE);
 
 	//Computation for boundary conditions
-	double dk = (0.8 - K_min)/ARRAY_SIZE;
+	double dk = (K_max - K_min)/ARRAY_SIZE;
 	double rhs[ARRAY_SIZE], lhs[ARRAY_SIZE];
 	k_boundary[0] = K_min;
-	k_boundary[ARRAY_SIZE-1] = 0.8;
+	k_boundary[ARRAY_SIZE-1] = K_max;
  	
 	#pragma omp parallel for 
 	{
@@ -76,7 +76,7 @@ int main(void){
 		}
 	}
 
- 	//eigen value and transverse
+ 	//eigenvalue and transverse
 	double b[2], T[2];
 	#pragma omp parallel for
 	{
@@ -84,7 +84,7 @@ int main(void){
 			eigenbeta_value(K_w, k_boundary[j], del, b);
 			transverse_T(b, k_boundary[j], T);
 			lhs[j] = left_hand_side(b[0], k_boundary[j], int_value[3], T[0], int_value[5]);
-			rhs[j] = right_hand_side(b,k_boundary[j],int_value[3],T,int_value[5]);
+			rhs[j] = right_hand_side(b, k_boundary[j], int_value[3], T, int_value[5]);
 		}
 	}
  	
