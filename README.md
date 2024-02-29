@@ -9,6 +9,8 @@ To address this task, the project is divided into 3 parts. During the first, the
 
 * **Helicon Wave Physics Analysis**: C code to simulate the characteristics of Helicon wave physics for parametric studies. The program receives an input file where the user provides the values of the folder name to save all data, plasma density (n_0 m^-3), magnetic field (B_0 T), wave frequency (W Hz), wave number (K m^-1), plasma radius (a m), collission frequency (v), and azimuthal mode number (m). The program returns: a file containing the main parameters for the plasma, the H and TG wave, a file for each Magnetic and Electric field for each wave which contains the radial evolution, and the eigenvalues solutions for the wave number (K).
 
+![Couplings](/Analysis_pipeline/Images/BesselTG.jpg)
+
 * **FOCAL**:
 
 * **COMSOL**:
