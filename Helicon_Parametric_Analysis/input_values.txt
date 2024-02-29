@@ -1,6 +1,6 @@
-Folder name : B0_1200. n0_2e13.
+Folder name : B0_500. n0_2e13.
 n_0 = 2.0e13
-B_0 = 1200
+B_0 = 500
 W = 27.12e6
 a = 2.5
 v = 0
