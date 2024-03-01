@@ -1,0 +1,27 @@
+-----------------Input Values------------------ 
+Plasma density (n_0) = 1.0e+16 cm^-3. 
+External magnetic field (B_0) = 500 G. 
+External wave frequency (w) = 1.70e+08 rad/s. 
+Wave number (K) = 2.0743 cm^-1. 
+Plasma radius (a) = 2.50 cm. 
+Collission frequency (ν) = 0.00e+00 s^-1. 
+Azimuthal mode number (m) = 1.0. 
+
+---------------Plasma Parameters-------------- 
+Plasma frequency (W_p) = 1.59e+12 rad/s. 
+Cyclotron frequency (W_c) = 8.79e+09 rad/s. 
+
+-------------Wave Characteristics-------------
+Wave number (K_w) = 7.389330 cm^-1. 
+Skin number (K_s) = 53.084 cm^-1. 
+Minimum wave number (K_min) = 2.057188 cm^-1. 
+Maximum wave number (K_max) = 7.461978 cm^-1. 
+Damping factor (δ) = 0.019377 . 
+
+-----------------Helicon Wave-----------------
+Eigenvalue (β_1) = 26.323193 cm^-1. 
+Transverse wave number (T_1) = 26.241337 cm^-1. 
+
+--------------------TG Wave-------------------
+Eigenvalue (β_2) = 107.051711 cm^-1. 
+Transverse wave number (T_2) = 107.031613 cm^-1. 
