@@ -1,0 +1,18 @@
+-----------------Input Values------------------ 
+Plasma density (n_0) = 1.0e+11 cm^-3. 
+External magnetic field (B_0) = 500 G. 
+External wave frequency (w) = 1.70e+08 rad/s. 
+Plasma radius (a) = 2.50 cm. 
+Collission frequency (ν) = 0.00e+00 s^-1. 
+Azimuthal mode number (m) = 1.0. 
+
+---------------Plasma Parameters-------------- 
+Plasma frequency (W_p) = 5.03e+09 rad/s. 
+Cyclotron frequency (W_c) = 8.79e+09 rad/s. 
+
+-------------Wave Characteristics-------------
+Wave number (K_w) = 0.023367 cm^-1. 
+Skin number (K_s) = 0.168 cm^-1. 
+Minimum wave number (K_min) = 0.006505 cm^-1. 
+Maximum wave number (K_max) = 0.023597 cm^-1. 
+Damping factor (δ) = 0.019377 . 

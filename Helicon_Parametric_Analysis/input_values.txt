@@ -1,5 +1,5 @@
-Folder name : B0_500. n0_2e13.
-n_0 = 2.0e13
+Folder name : B0_500. n0_1e16.
+n_0 = 1.0e16
 B_0 = 500
 W = 27.12e6
 a = 2.5
