@@ -1,4 +1,4 @@
-Folder name : B0_500. n0_1e16. k_2.0743
+Folder name : New_compiler_test
 n_0 = 1.0e16
 B_0 = 500
 W = 27.12e6
